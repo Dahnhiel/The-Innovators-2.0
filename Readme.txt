@@ -1,6 +1,4 @@
-Thanks for downloading this template!
+The Innovators website
 
-Template Name: BizLand
-Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+My digital marketing team... easy to maintain and also very clean code..
+

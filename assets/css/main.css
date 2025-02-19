@@ -7,7 +7,7 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #222222; /* Color for headings, subheadings and title throughout the website */
@@ -636,7 +636,7 @@ h6 {
   border-radius: 50%;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
   position: absolute;
-  left: 50%;
+  left: 40%;
 }
 
 #preloader div:nth-child(1) {
@@ -1337,10 +1337,6 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
-.portfolio {
-  background-color: rgb(238, 233, 233);
-}
-
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1388,195 +1384,16 @@ section,
   overflow: hidden;
 }
 
-
-
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-.team .team-member {
-  background-color: var(--surface-color);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  border-radius: 5px;
+.portfolio .portfolio-item #portfolio-img {
+  cursor: pointer;
 }
 
-.team .team-member .member-img {
-  position: relative;
-  overflow: hidden;
-}
+.portfolio .portfolio-item #portfolio-img:hover {
+  transition: ease-in-out 2s;
+ transform: scale(1.1);
+} 
 
-.team .team-member .social {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 40px;
-  opacity: 0;
-  transition: ease-in-out 0.3s;
-  background: color-mix(in srgb, var(--background-color), transparent 20%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.team .team-member .social a {
-  transition: color 0.3s;
-  color: var(--heading-color);
-  margin: 0 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.team .team-member .social a i {
-  line-height: 0;
-}
-
-.team .team-member .social a:hover {
-  color: var(--accent-color);
-}
-
-.team .team-member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
-
-.team .team-member .member-info {
-  padding: 25px 15px;
-  text-align: center;
-}
-
-.team .team-member .member-info h4 {
-  font-weight: 700;
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.team .team-member .member-info span {
-  display: block;
-  font-size: 13px;
-  font-weight: 400;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-.team .team-member .member-info p {
-  font-style: italic;
-  font-size: 14px;
-  line-height: 26px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-}
-
-.team .team-member:hover .social {
-  opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
-.pricing .pricing-item {
-  background-color: var(--surface-color);
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing .pricing-item h3 {
-  font-weight: 400;
-  margin: -20px -20px 20px -20px;
-  padding: 20px 15px;
-  font-size: 16px;
-  font-weight: 600;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background: color-mix(in srgb, var(--default-color), transparent 95%);
-}
-
-.pricing .pricing-item h4 {
-  font-size: 36px;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.pricing .pricing-item h4 sup {
-  font-size: 20px;
-  top: -15px;
-  left: -3px;
-}
-
-.pricing .pricing-item h4 span {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.pricing .pricing-item ul {
-  padding: 15px 0;
-  list-style: none;
-  text-align: center;
-  line-height: 20px;
-  font-size: 14px;
-}
-
-.pricing .pricing-item ul li {
-  padding-bottom: 16px;
-}
-
-.pricing .pricing-item ul i {
-  color: var(--accent-color);
-  font-size: 18px;
-  padding-right: 4px;
-}
-
-.pricing .pricing-item ul .na {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  text-decoration: line-through;
-}
-
-.pricing .btn-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 95%);
-  margin: 0 -20px -20px -20px;
-  padding: 20px 15px;
-  text-align: center;
-}
-
-.pricing .btn-buy {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 4px;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: var(--heading-font);
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.pricing .btn-buy:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.pricing .featured h3 {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .advanced {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  width: 200px;
-  position: absolute;
-  top: 18px;
-  right: -68px;
-  transform: rotate(45deg);
-  z-index: 1;
-  font-size: 14px;
-  padding: 1px 0 3px 0;
-}
 
 /*--------------------------------------------------------------
 # Faq Section

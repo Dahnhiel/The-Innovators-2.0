@@ -35,7 +35,7 @@
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">dannyfrosh71@gmail.com</a></i>
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">innovatorsdigitalagency@gmail.com</a></i>
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+234-8119385500</span></i>
         </div>
         <div class="social-links d-none d-md-flex align-items-center">
@@ -157,14 +157,14 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="about-content ps-0 ps-lg-3">
-              <h3>Top marketing agency & consult your website with us</h3>
+              <h3 class="text-primary text-bold">We are a top marketing agency & website consultant</h3>
               
               <p>
                 At Innovators, We are passionate about helping businesses unlock their full digital 
                 potential. Founded with a vision to drive growth through innovative SEO and digital 
                 marketing solutions, we combine cutting-edge strategies with a results-driven approach 
                 to elevate brands in the competitive online landscape. Our team of experienced marketers, 
-                SEO specialists, content creators, and data analysts work collaboratively to craft tailored 
+                SEO specialists, content creators, data analysts and web developers work collaboratively to craft tailored 
                 solutions that meet your unique business needs.
               </p>
             </div>
@@ -294,7 +294,7 @@
               <div class="icon">
                 <i class="bi bi-activity"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Website Development</h3>
               </a>
               <p>Your website is your 24/7 online shop. We build responsive website and also Wordpress/Shopify development.</p>
@@ -306,7 +306,7 @@
               <div class="icon">
                 <i class="bi bi-broadcast"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Content Management</h3>
               </a>
               <p>Content drives all digital marketing elements and great content added to good design can drive significant sales and engagements</p>
@@ -318,7 +318,7 @@
               <div class="icon">
                 <i class="bi bi-easel"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Social Media Management/Marketing </h3>
               </a>
               <p>We manage your brand reputation. Organic social media management, paid social media advertising also social media report and analytics</p>
@@ -330,11 +330,11 @@
               <div class="icon">
                 <i class="bi bi-bounding-box-circles"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Brand Development</h3>
               </a>
               <p>We develop your products into brands and that give them a distinct identity in the mind of the customers</p>
-              <a href="#" class="stretched-link"></a>
+              <a href="#contact" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -343,11 +343,11 @@
               <div class="icon">
                 <i class="bi bi-calendar4-week"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Google My Business (GMB)</h3>
               </a>
               <p>Google My Business optimization, local citations, geo-targeted content.</p>
-              <a href="#" class="stretched-link"></a>
+              <a href="#contact" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -356,11 +356,11 @@
               <div class="icon">
                 <i class="bi bi-chat-square-text"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="#contact" class="stretched-link">
                 <h3>Shopify Store Design</h3>
               </a>
               <p>We will design your store to perfection and increase your sale over time.</p>
-              <a href="#" class="stretched-link"></a>
+              <a href="#contact" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -611,7 +611,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>dannyfrosh71@gmail.com</p>
+                  <p>innovatorsdigitalagency@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -621,7 +621,7 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="http://127.0.0.1:3000/send" method="POST" class="form" id="contact-form" data-aos="fade-up" data-aos-delay="200">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -644,12 +644,10 @@
                   <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
                 </div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="col-md-12 text-center d-flex flex-column justify-content-center">
+                  <span class="text-danger mb-2" id="response-message"></span>
 
-                  <button type="submit">Send Message</button>
+                  <button class="btn btn-primary"  type="submit">Send Message</button>
                 </div>
 
               </div>
@@ -753,9 +751,44 @@
     <div></div>
   </div>
 
+  <script>
+    const form = document.querySelector('#contact-form');
+    const responseMessageDiv = document.querySelector('#response-message');
+    // responseMessageDiv.innerHTML = 'Hello world!!';
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('http://127.0.0.1:3000/send', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+            
+
+            if (response.ok) {
+                // Display success message
+                responseMessageDiv.style.color = 'green';
+                responseMessageDiv.innerHTML = data.message;
+            } else {
+                // Display error message
+                responseMessageDiv.style.color = 'red';
+                responseMessageDiv.innerHTML = data.message;
+            }
+        } catch (error) {
+            // Handle unexpected errors
+            responseMessageDiv.style.color = 'red';
+            responseMessageDiv.innerHTML = 'An unexpected error occurred. Please check your internet connection';
+        }
+    });
+</script>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
